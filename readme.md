@@ -1,4 +1,4 @@
-#### cepfinder
+![cepfinder_logo](./res/logo.png)
 
 O buscador de cep que auxilia no fornecimento de endereços postais.
 
