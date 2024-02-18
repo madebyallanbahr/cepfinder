@@ -47,11 +47,11 @@ const clearFn = () => {
   cep.value = "";
 };
 
-const updateFn = () => {
-  setTimeout(() => {
-    divInfo.classList.toggle("active");
-  }, 1000);
-  setTimeout(() => {
-    divInfo.classList.toggle("active");
-  }, 5000);
-};
+// const updateFn = () => {
+//   setTimeout(() => {
+//     divInfo.classList.toggle("active");
+//   }, 1000);
+//   setTimeout(() => {
+//     divInfo.classList.toggle("active");
+//   }, 5000);
+// };
