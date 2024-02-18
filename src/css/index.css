@@ -10,7 +10,7 @@ main {
 }
 
 .sec-logo {
-  background-color: var(--grayBlue);
+  background-color: var(--backgroundMainColor);
   height: 100vh;
   width: 50%;
   border-right: 1px solid var(--stroke);
@@ -26,7 +26,7 @@ form {
 }
 
 .sec-search {
-  background-color: var(--bluesky);
+  background-color: var(--backgroundSecondColor);
   height: 100vh;
   width: 50%;
 }
