@@ -15,9 +15,6 @@
   --backgroundMainColor: #a8c256;
   --white: #ffffff;
   --gray: #b5b5b5;
-  --blue: #2e5eaa;
-  --red: #bb342f;
-  --green: #4e6e5d;
   --stroke: #3a3a3a;
   --strokeHover: #bbb;
 }
@@ -58,24 +55,7 @@
   opacity: 0.9;
   color: var(--backgroundMainColor);
 }
-.div-details {
-  background-color: var(--green);
-  width: 100vw;
-  top: 20px;
-  color: var(--white);
-  margin: 25px;
-  border-radius: 5px;
-  padding: 25px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: row;
-  border: 1px solid var(--stroke);
-  display: none;
-}
-.active {
-  display: flex;
-}
+
 .flex-center {
   display: flex;
   justify-content: center;
