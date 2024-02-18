@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cepfinder - buscador de cep</title>
+    <link rel="stylesheet" href="./src/css/index.css" />
+  </head>
+  <body>
+    <main>
+      <section class="sec-logo flex-center">
+        <img class="sec-logo-img" src="./res/cepfinder_logo.svg" />
+      </section>
+      <section class="sec-search flex-center">
+        <form class="flex-center">
+          <input
+            autocomplete="off"
+            type="text"
+            id="cep"
+            placeholder="CEP"
+            maxlength="8"
+            pattern="^[0-9]{8}"
+            class="inp flex-center"
+          />
+          <div class="btns">
+            <input
+              type="button"
+              class="btn"
+              onclick="searchFn()"
+              value="Search"
+            />
+            <input
+              type="button"
+              class="btn"
+              onclick="switchFn()"
+              value="Switch"
+            />
+            <input
+              type="button"
+              class="btn"
+              onclick="clearFn()"
+              value="Clear"
+            />
+          </div>
+        </form>
+      </section>
+      <!-- <section class="sec-details flex-center">
+        <div id="details" class="div-details">
+          <p>Seu CEP informado retornou as seguintes informações</p>
+          <select id="info-get" class="selector-options">
+            <option class="option-op">CEP</option>
+          </select>
+        </div>
+      </section> FIXME: refactor the function and polish the code -->
+    </main>
+    <script src="./src/js/index.js"></script>
+  </body>
+</html>
