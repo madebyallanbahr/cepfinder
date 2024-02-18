@@ -11,10 +11,10 @@
 }
 
 :root {
-  --bluesky: #121619;
-  --grayBlue: #a8c256;
+  --backgroundSecondColor: #121619;
+  --backgroundMainColor: #a8c256;
   --white: #ffffff;
-  --gray: #ccdad1;
+  --gray: #b5b5b5;
   --blue: #2e5eaa;
   --red: #bb342f;
   --green: #4e6e5d;
@@ -29,9 +29,9 @@
   padding: 20px;
   background-color: transparent;
   border: none;
-  color: var(--grayBlue);
+  color: var(--backgroundMainColor);
   font-size: 16px;
-  border: 1px solid var(--grayBlue);
+  border: 1px solid var(--backgroundMainColor);
   border-radius: 5px;
 }
 .inp:hover {
@@ -51,12 +51,12 @@
   margin: 20px;
   cursor: pointer;
   background-color: transparent;
-  color: #b5b5b5;
+  color: var(--gray);
   border: none;
 }
 .btn:hover {
   opacity: 0.9;
-  color: var(--grayBlue);
+  color: var(--backgroundMainColor);
 }
 .div-details {
   background-color: var(--green);
