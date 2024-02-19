@@ -1,6 +1,19 @@
 let cep = document.getElementById("cep");
+
+let infoElement = document.getElementById("info-el");
+let infoImageElement = document.getElementById("info-img");
+let infoParagraphElement = document.getElementById("info-p");
+
+const typesWarns = {
+  error: "../../res/error.svg",
+  done: "../../res/check.svg",
+  warn: "../../res/warn.svg",
+};
+
 let mode = { cep: true, address: false };
+
 let apiURL = "https://viacep.com.br/ws/";
+
 let schemaCEP = {
   cep: "",
   bairro: "",
@@ -9,8 +22,6 @@ let schemaCEP = {
   local: "",
   logradouro: "",
 };
-let selectorInfo = document.getElementById("info-get");
-let divInfo = document.getElementById("details");
 
 const searchFn = async () => {
   if (cep.value.length == 8 && mode.cep) {
@@ -26,10 +37,12 @@ const searchFn = async () => {
       schemaCEP.local = info.localidade;
       schemaCEP.logradouro = info.logradouro;
       schemaCEP.uf = info.uf;
-      // updateFn();
+      updateFn("done", "CEP Encontrado!");
     } catch (err) {
-      console.warn(err);
+      updateFn("error", err);
     }
+  } else {
+    updateFn("warn", "Nenhum cep informado!");
   }
   apiURL = "https://viacep.com.br/ws/";
 };
@@ -41,17 +54,23 @@ const switchFn = () => {
     : (mode.address = true);
   mode.address = modeAddress;
   mode.cep = modeCEP;
+  if (mode.cep) updateFn("warn", `Modo alterado para CEP`);
+  if (mode.address) updateFn("warn", `Modo alterado para Endereço`);
 };
 
 const clearFn = () => {
   cep.value = "";
 };
 
-// const updateFn = () => {
-//   setTimeout(() => {
-//     divInfo.classList.toggle("active");
-//   }, 1000);
-//   setTimeout(() => {
-//     divInfo.classList.toggle("active");
-//   }, 5000);
-// };
+const updateFn = (type, msg) => {
+  setTimeout(() => {
+    infoImageElement.src = typesWarns[type];
+    infoParagraphElement.textContent = msg;
+    infoElement.classList.toggle("active");
+    setTimeout(() => {
+      infoElement.classList.toggle("active");
+      infoImageElement.src = "";
+      infoParagraphElement.textContent = "";
+    }, 3000);
+  }, 1000);
+};

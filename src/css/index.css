@@ -30,6 +30,25 @@ form {
   height: 100vh;
   width: 50%;
 }
+
+.sec-info {
+  width: 30vw;
+  height: 6vh;
+  position: fixed;
+  top: 0;
+  color: var(--gray);
+  background-color: var(--backgroundSecondColor);
+  border: 1px solid var(--stroke);
+  border-radius: 5px;
+  flex-direction: row;
+  margin-top: 20px;
+  padding: 20px;
+  justify-content: space-between;
+  display: none;
+}
+.active {
+  display: flex;
+}
 @media (max-width: 800px) {
   main {
     display: flex;
