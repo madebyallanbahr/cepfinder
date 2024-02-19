@@ -26,7 +26,7 @@ const searchFn = async () => {
       schemaCEP.local = info.localidade;
       schemaCEP.logradouro = info.logradouro;
       schemaCEP.uf = info.uf;
-      updateFn();
+      // updateFn();
     } catch (err) {
       console.warn(err);
     }
