@@ -47,6 +47,8 @@ const searchFn = async () => {
   apiURL = "https://viacep.com.br/ws/";
 };
 
+const showFn = async () => {};
+
 const switchFn = () => {
   let modeCEP = mode.cep ? (mode.cep = false) : (mode.cep = true);
   let modeAddress = mode.address
@@ -59,6 +61,8 @@ const switchFn = () => {
 };
 
 const clearFn = () => {
+  if (cep.value == "") return updateFn("error", "Campo se encontra vazio!");
+  updateFn("warn", "Campo limpo com sucesso!");
   cep.value = "";
 };
 
@@ -71,6 +75,6 @@ const updateFn = (type, msg) => {
       infoElement.classList.toggle("active");
       infoImageElement.src = "";
       infoParagraphElement.textContent = "";
-    }, 3000);
+    }, 2000);
   }, 1000);
 };
