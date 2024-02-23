@@ -4,6 +4,13 @@ let infoElement = document.getElementById("info-el");
 let infoImageElement = document.getElementById("info-img");
 let infoParagraphElement = document.getElementById("info-p");
 
+let fields = document.getElementById("fields");
+let addressField = document.getElementById("address-field");
+let districtField = document.getElementById("district-field");
+let ufField = document.getElementById("uf-field");
+let cityField = document.getElementById("city-field");
+let complementField = document.getElementById("complement-field");
+
 const typesWarns = {
   error: "../../res/error.svg",
   done: "../../res/check.svg",
@@ -16,11 +23,11 @@ let apiURL = "https://viacep.com.br/ws/";
 
 let schemaCEP = {
   cep: "",
-  bairro: "",
+  district: "",
   complement: "",
   uf: "",
-  local: "",
-  logradouro: "",
+  city: "",
+  address: "",
 };
 
 const searchFn = async () => {
@@ -32,12 +39,13 @@ const searchFn = async () => {
       const info = await response.json();
       if (info.erro) throw "CEP Inválido!";
       schemaCEP.cep = info.cep;
-      schemaCEP.bairro = info.bairro;
+      schemaCEP.district = info.bairro;
       schemaCEP.complement = info.complemento;
-      schemaCEP.local = info.localidade;
-      schemaCEP.logradouro = info.logradouro;
+      schemaCEP.city = info.localidade;
+      schemaCEP.address = info.logradouro;
       schemaCEP.uf = info.uf;
       updateFn("done", "CEP Encontrado!");
+      showFn();
     } catch (err) {
       updateFn("error", err);
     }
@@ -47,7 +55,16 @@ const searchFn = async () => {
   apiURL = "https://viacep.com.br/ws/";
 };
 
-const showFn = async () => {};
+const showFn = async () => {
+  await setTimeout(() => {
+    fields.style.display = "flex";
+    addressField.textContent = schemaCEP.address;
+    districtField.textContent = schemaCEP.district;
+    cityField.textContent = schemaCEP.city;
+    complementField.textContent = schemaCEP.complement;
+    ufField.textContent = schemaCEP.uf;
+  }, 2000);
+};
 
 const switchFn = () => {
   let modeCEP = mode.cep ? (mode.cep = false) : (mode.cep = true);
@@ -62,7 +79,8 @@ const switchFn = () => {
 
 const clearFn = () => {
   if (cep.value == "") return updateFn("error", "Campo se encontra vazio!");
-  updateFn("warn", "Campo limpo com sucesso!");
+  updateFn("warn", "Dados apagados e campos limpos!");
+  fields.style.display = "none";
   cep.value = "";
 };
 

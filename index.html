@@ -12,7 +12,7 @@
         <img class="sec-logo-img" src="./res/cepfinder_logo.svg" />
       </section>
       <section class="sec-search flex-center">
-        <form action="." class="flex-center">
+        <form class="flex-center">
           <input
             autocomplete="off"
             type="text"
@@ -41,6 +41,23 @@
               onclick="clearFn()"
               value="Clear"
             />
+          </div>
+          <div id="fields" class="info-fields">
+            <p class="info-field flex-center">
+              Endereço: <span class="field" id="address-field"></span>
+            </p>
+            <p class="info-field flex-center">
+              Bairro: <span class="field" id="district-field"></span>
+            </p>
+            <p class="info-field flex-center">
+              Cidade: <span class="field" id="city-field"></span>
+            </p>
+            <p class="info-field flex-center">
+              UF: <span class="field" id="uf-field"></span>
+            </p>
+            <p class="info-field flex-center">
+              Complemento: <span class="field" id="complement-field"></span>
+            </p>
           </div>
         </form>
         <section id="info-el" class="sec-info flex-center">
