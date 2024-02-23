@@ -1,8 +1,17 @@
 let cep = document.getElementById("cep");
 
+// Info for Notifications
 let infoElement = document.getElementById("info-el");
 let infoImageElement = document.getElementById("info-img");
 let infoParagraphElement = document.getElementById("info-p");
+
+// Fields for Response
+let infoField = document.querySelector(".info-fields");
+let addressField = document.getElementById("address-field");
+let districtField = document.getElementById("district-field");
+let ufField = document.getElementById("uf-field");
+let cityField = document.getElementById("city-field");
+let complementField = document.getElementById("complement-field");
 
 const typesWarns = {
   error: "../../res/error.svg",
@@ -16,11 +25,11 @@ let apiURL = "https://viacep.com.br/ws/";
 
 let schemaCEP = {
   cep: "",
-  bairro: "",
+  district: "",
   complement: "",
   uf: "",
-  local: "",
-  logradouro: "",
+  city: "",
+  address: "",
 };
 
 const searchFn = async () => {
@@ -32,12 +41,13 @@ const searchFn = async () => {
       const info = await response.json();
       if (info.erro) throw "CEP Inválido!";
       schemaCEP.cep = info.cep;
-      schemaCEP.bairro = info.bairro;
+      schemaCEP.district = info.bairro;
       schemaCEP.complement = info.complemento;
-      schemaCEP.local = info.localidade;
-      schemaCEP.logradouro = info.logradouro;
+      schemaCEP.city = info.localidade;
+      schemaCEP.address = info.logradouro;
       schemaCEP.uf = info.uf;
       updateFn("done", "CEP Encontrado!");
+      showFn();
     } catch (err) {
       updateFn("error", err);
     }
@@ -47,7 +57,9 @@ const searchFn = async () => {
   apiURL = "https://viacep.com.br/ws/";
 };
 
-const showFn = async () => {};
+const showFn = async () => {
+  await infoField.classList.toggle("active");
+};
 
 const switchFn = () => {
   let modeCEP = mode.cep ? (mode.cep = false) : (mode.cep = true);
