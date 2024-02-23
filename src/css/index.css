@@ -51,16 +51,17 @@ form {
 .active {
   display: flex;
 }
-.info-fields {
+
+#fields {
   margin: 10px;
   padding: 10px;
-  display: flex;
+  display: none;
   width: 50%;
   flex-direction: column;
   color: var(--gray);
 }
 .info-field {
-  display: none;
+  display: flex;
   padding: 10px;
   margin: 5px;
 }
@@ -71,6 +72,10 @@ form {
   border: 1px solid var(--backgroundMainColor);
   border-radius: 10px;
 }
+.displayed {
+  display: flex;
+}
+
 @media (max-width: 800px) {
   main {
     display: flex;

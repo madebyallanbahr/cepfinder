@@ -1,12 +1,10 @@
 let cep = document.getElementById("cep");
 
-// Info for Notifications
 let infoElement = document.getElementById("info-el");
 let infoImageElement = document.getElementById("info-img");
 let infoParagraphElement = document.getElementById("info-p");
 
-// Fields for Response
-let infoField = document.querySelector(".info-fields");
+let fields = document.getElementById("fields");
 let addressField = document.getElementById("address-field");
 let districtField = document.getElementById("district-field");
 let ufField = document.getElementById("uf-field");
@@ -58,7 +56,14 @@ const searchFn = async () => {
 };
 
 const showFn = async () => {
-  await infoField.classList.toggle("active");
+  await setTimeout(() => {
+    fields.style.display = "flex";
+    addressField.textContent = schemaCEP.address;
+    districtField.textContent = schemaCEP.district;
+    cityField.textContent = schemaCEP.city;
+    complementField.textContent = schemaCEP.complement;
+    ufField.textContent = schemaCEP.uf;
+  }, 2000);
 };
 
 const switchFn = () => {
@@ -74,7 +79,8 @@ const switchFn = () => {
 
 const clearFn = () => {
   if (cep.value == "") return updateFn("error", "Campo se encontra vazio!");
-  updateFn("warn", "Campo limpo com sucesso!");
+  updateFn("warn", "Dados apagados e campos limpos!");
+  fields.style.display = "none";
   cep.value = "";
 };
 

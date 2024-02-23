@@ -6,7 +6,7 @@
   box-sizing: border-box;
   outline: none;
   overflow: hidden;
-  transition: 0.25s all ease-in;
+  transition: 0.5s all ease-in-out;
   font-family: "Inter", sans-serif;
 }
 
